@@ -23,7 +23,7 @@ import shutil
 """
 root_path = ""  # 替换为drowsyDriving数据集所在文件夹名，个人习惯是datasets
 dataset_path = "drowsyDriving"
-train_percent = 0.5
+train_percent = 0.9
 
 
 def split_train_val():
@@ -65,10 +65,12 @@ def split_train_val():
     for name in train:
         shutil.copyfile(image_file_path+'/'+name+'.jpg', save_path_images_train+'/'+name+'.jpg')
         shutil.copyfile(label_file_path + '/' + name + '.txt', save_path_labels_train + '/' + name + '.txt')
+        print("convert"+name+""to train)
 
     for name in val:
         shutil.copyfile(image_file_path+'/'+name+'.jpg', save_path_images_val+'/'+name+'.jpg')
         shutil.copyfile(label_file_path + '/' + name + '.txt', save_path_labels_val + '/' + name + '.txt')
+        print("convert"+name+""to val)
 
 
 if __name__ == "__main__":
