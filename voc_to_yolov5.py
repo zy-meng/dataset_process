@@ -1,8 +1,3 @@
-'''
-2020/6/15,标注文件转换xml转txt（vol to yolo）转完后需添加labels文件，即数字序号对应的标签名。
-
-'''
-
 import xml.etree.ElementTree as ET
 import pickle
 import os
@@ -12,7 +7,7 @@ classes = ['window_shielding', 'multi_signs', 'non_traffic_sign']
 
 root_path = 'datasets'
 xml_path = root_path + '/VOC/Annotations'
-txt_path = root_path + '/worktxt'  # 生成的.txt文件会被保存在worktxt目录下
+txt_path = root_path + '/labels'  # 生成的.txt文件会被保存在labels目录下
 if not os.path.exists(txt_path):
     os.makedirs(txt_path)
 
