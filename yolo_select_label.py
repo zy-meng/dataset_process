@@ -1,6 +1,14 @@
 import os
-
-
+"""
+--Annotations
+ |-yolo_select_label.py
+--images
+ |-train
+ |-val
+--labels
+ |-train
+ |-val
+"""
 old_label_dir = "../labels/train"
 new_label_dir = "../labels/new_train"
 # old_label_dir = "../labels/val"
