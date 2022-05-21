@@ -43,7 +43,7 @@ def convert_annotation(xml_full_path, xml_name):
             out_file.truncate()
             for obj in root.iter('object'):
                 difficult = obj.find('difficult').text
-                cls = obj.find('txt_name').text
+                cls = obj.find('name').text
                 if cls not in classes or int(difficult) == 1:
                     continue
                 cls_id = classes.index(cls)
