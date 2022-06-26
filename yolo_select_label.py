@@ -19,10 +19,6 @@ TOTAL_NUM = 0
 if not os.path.exists(new_label_dir):
     os.mkdir(new_label_dir)
 
-def main():
-    label_name_list = os.listdir(old_label_dir)
-    for label_name in label_name_list:
-        drop_label(label_name) 
 
 def drop_label(file_name):
     old_file_path = os.path.join(old_label_dir,file_name)
@@ -46,6 +42,12 @@ def drop_label(file_name):
     TOTAL_NUM += 1
 
 
+def main():
+    label_name_list = os.listdir(old_label_dir)
+    for label_name in label_name_list:
+        drop_label(label_name)
+    print(TOTAL_NUM)
+    
 if __name__ == "__main__":
     main()
 
