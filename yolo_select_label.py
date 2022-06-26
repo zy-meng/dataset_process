@@ -15,6 +15,7 @@ new_label_dir = "../labels/new_train"
 # new_label_dir = "../labels/new_val"
 
 TOTAL_NUM = 0
+DEPRECATE_NUM = 0
 
 if not os.path.exists(new_label_dir):
     os.mkdir(new_label_dir)
@@ -33,7 +34,7 @@ def drop_label(file_name):
     new_label_path = os.path.join(new_label_dir,file_name)
     
     if len(new_labels) == 0:
-        print("deprecate")
+        DEPRECATE_NUM += 1
         return 0
     
     with open(new_label_path, 'w') as f:
