@@ -14,6 +14,8 @@ new_label_dir = "../labels/new_train"
 # old_label_dir = "../labels/val"
 # new_label_dir = "../labels/new_val"
 
+TOTAL_NUM = 0
+
 if not os.path.exists(new_label_dir):
     os.mkdir(new_label_dir)
 
@@ -21,7 +23,6 @@ def main():
     label_name_list = os.listdir(old_label_dir)
     for label_name in label_name_list:
         drop_label(label_name) 
-        print(label_name,"finished")
 
 def drop_label(file_name):
     old_file_path = os.path.join(old_label_dir,file_name)
@@ -34,10 +35,15 @@ def drop_label(file_name):
         if int(label.split()[0]) == 0:  # 0=person
             new_labels.append(label)
     new_label_path = os.path.join(new_label_dir,file_name)
-
+    
+    if len(new_labels) == 0:
+        print("deprecate")
+        return 0
+    
     with open(new_label_path, 'w') as f:
         for new_label in new_labels:
             f.writelines(new_label+'\n')
+    TOTAL_NUM += 1
 
 
 if __name__ == "__main__":
