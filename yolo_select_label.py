@@ -13,10 +13,18 @@ import shutil
 """
 root_dir = "/home/mzy/datasets/COCO"
 
+
+""" Process train and valid separately
+"""
+
+# Train
+
 # old_label_dir = os.path.join(root_dir, "labels/train")
 # new_label_dir = os.path.join(root_dir, "labels/new_train")
 # old_image_dir = os.path.join(root_dir, "images/train")
 # new_image_dir = os.path.join(root_dir, "images/new_train")
+
+# Val
 
 old_label_dir = os.path.join(root_dir, "labels/val")
 new_label_dir = os.path.join(root_dir, "labels/new_val")
