@@ -12,13 +12,18 @@ import shutil
  |-val
 """
 root_dir = "/home/mzy/datasets/COCO"
-old_label_dir = os.path.join(root_dir, "labels/train")
-new_label_dir = os.path.join(root_dir, "labels/new_train")
-old_image_dir = os.path.join(root_dir, "images/train")
-new_image_dir = os.path.join(root_dir, "images/new_train")
 
-# old_label_dir = "../labels/val"
-# new_label_dir = "../labels/new_val"
+# old_label_dir = os.path.join(root_dir, "labels/train")
+# new_label_dir = os.path.join(root_dir, "labels/new_train")
+# old_image_dir = os.path.join(root_dir, "images/train")
+# new_image_dir = os.path.join(root_dir, "images/new_train")
+
+old_label_dir = os.path.join(root_dir, "labels/val")
+new_label_dir = os.path.join(root_dir, "labels/new_val")
+old_image_dir = os.path.join(root_dir, "images/val")
+new_image_dir = os.path.join(root_dir, "images/new_val")
+
+
 
 TOTAL_NUM = 0
 DEPRECATE_NUM = 0
@@ -84,8 +89,8 @@ def main():
     for image_name in tqdm(image_name_list):
         transport_image(image_name)
     
-    print("TOTAL_NUM:{}".format(TOTAL_NUM))
-    print("DEPRECATE_NUM:{}".format(DEPRECATE_NUM))
+    print("REMAIN TOTAL NUM:{}".format(TOTAL_NUM))
+    print("DEPRECATE NUM:{}".format(DEPRECATE_NUM))
 
 
 
