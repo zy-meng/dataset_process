@@ -1,40 +1,27 @@
+# -*- coding: UTF-8 -*-
 import os
 import sys
 import random
 import shutil
 
 
-# |-datasets
-#  |-yolo_split_train_val  该python脚本所在位置
-#  |-drowsyDriving
-#    |--images
-#    |--labels
-# ---以下文件为生成---
-#  |-drowsyDrivingTrainVal
-#    |--images
-#       |--train
-#       |--test
-#    |--labels
-#       |--train
-#       |--test
-
 """
     仅需修改root_path、dataset_path和train_percent
 """
-root_path = ""  # 替换为drowsyDriving数据集所在文件夹名，个人习惯是datasets
-dataset_path = "drowsyDriving"
-train_percent = 0.9
+
+dataset_path = "../orchard/data_2"
+train_percent = 0.8
 
 
 def split_train_val():
-    image_file_path = dataset_path + '/images'
-    label_file_path = dataset_path + '/labels'
+    image_file_path = os.path.join(dataset_path, "images")
+    label_file_path = os.path.join(dataset_path, "labels")
 
     save_path = dataset_path + "TrainVal"
-    save_path_images_train = save_path + "/images/train"
-    save_path_images_val = save_path + "/images/val"
-    save_path_labels_train = save_path + "/labels/train"
-    save_path_labels_val = save_path + "/labels/val"
+    save_path_images_train = os.path.join(save_path, "images/train")
+    save_path_images_val = os.path.join(save_path, "images/val")
+    save_path_labels_train = os.path.join(save_path, "labels/train")
+    save_path_labels_val = os.path.join(save_path, "labels/val")
 
     if not os.path.exists(save_path):
         os.makedirs(save_path)
@@ -65,12 +52,12 @@ def split_train_val():
     for name in train:
         shutil.copyfile(image_file_path+'/'+name+'.jpg', save_path_images_train+'/'+name+'.jpg')
         shutil.copyfile(label_file_path + '/' + name + '.txt', save_path_labels_train + '/' + name + '.txt')
-        print("convert"+name+""to train)
+        print("convert"+name+"to train")
 
     for name in val:
         shutil.copyfile(image_file_path+'/'+name+'.jpg', save_path_images_val+'/'+name+'.jpg')
         shutil.copyfile(label_file_path + '/' + name + '.txt', save_path_labels_val + '/' + name + '.txt')
-        print("convert"+name+""to val)
+        print("convert"+name+"to val")
 
 
 if __name__ == "__main__":
